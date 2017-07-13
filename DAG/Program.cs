@@ -10,38 +10,29 @@ namespace DAG
     {
         static void Main(string[] args)
         {
-            var na = new TransformNode();
-            var nb = new TransformNode();
-            var nc = new TransformNode();
-            var nd = new TransformNode();
-            var ne = new TransformNode();
-            var nf = new TransformNode();
+            var a = new TransformNode("a");
+            var b = new TransformNode("b");
+            var c = new TransformNode("c");
+            var d = new TransformNode("d");
+            var e = new TransformNode("e");
+            var f = new TransformNode("f");
+            var g = new TransformNode("g");
+            var h = new TransformNode("h");
+            b.SetParent(a);
+            c.SetParent(b);
+            e.SetParent(d);
+            f.SetParent(d);
+            g.SetParent(d);
+            h.SetParent(f);
 
-            nb.SetParent(na);
-            nc.SetParent(na);
-            nd.SetParent(nb);
-            ne.SetParent(nc);
-            nf.SetParent(nc);
-            TransformNode.ShowAll();
-            Console.WriteLine("reset nc to nd as parent");
+            CommandManager.ProcessCommand("ls");
 
-            nc.SetParent(nd);
-            TransformNode.ShowAll();
-            Console.WriteLine("show nc children only");
-            nc.ShowTree();
+            while (!CommandManager.DoneRunning)
+            {
+                Console.Write(":");
+                CommandManager.ProcessCommand(Console.ReadLine());
+            }
 
-            Console.WriteLine("test grouping");
-            TransformNode.Group(nd,nc);
-            TransformNode.ShowAll();
-
-            Console.WriteLine("test removing c");
-            nc.RemoveNode();
-            TransformNode.ShowAll();
-
-            var foundNode = TransformNode.Find("B");
-            if(foundNode!= null) Console.WriteLine("found: " + foundNode);
-
-            Console.ReadKey();
         }
     }
 }

@@ -42,8 +42,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\GeometryNode.cs" />
+    <Compile Include="Classes\LightNode.cs" />
     <Compile Include="Classes\Node.cs" />
+    <Compile Include="Classes\ShapeNode.cs" />
     <Compile Include="Classes\TransformNode.cs" />
+    <Compile Include="Commands\CreateCommand.cs" />
+    <Compile Include="Commands\DeleteCommand.cs" />
+    <Compile Include="Commands\ExitCommand.cs" />
+    <Compile Include="Commands\ClearCommand.cs" />
+    <Compile Include="Commands\Command.cs" />
+    <Compile Include="Commands\CommandManager.cs" />
+    <Compile Include="Commands\GroupCommand.cs" />
+    <Compile Include="Commands\LSCommand.cs" />
+    <Compile Include="Commands\ParentCommand.cs" />
+    <Compile Include="Commands\RenameCommand.cs" />
+    <Compile Include="Commands\UnparentCommand.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
